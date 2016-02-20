@@ -1,0 +1,94 @@
+<head>
+  <title>Todo List</title>
+</head>
+
+<body>
+
+  <div class="container"
+       ng-app="JuegoFrases"
+
+
+  <div class="ui red segment">
+    <form >
+       <div class="ui form">
+           <label>Frase</label>
+           <textarea rows="2" placeholder="Frase a analizar por el jugador" ngModel="nuevafrase.frase"></textarea>
+      </div>
+
+      <div class="ui input">
+          <label>Palabra clave</label><br>
+          <input type="text" placeholder="Palabra clave, que el jugador debe identificar"  ngModel="nuevaFrase.palabraClave">
+      </div>
+
+      <div class="ui form">
+          <label>Significado Correcto</label>
+          <textarea rows="1" ngModel="nuevaFrase.significadoCorrecto"></textarea>
+     </div>
+     <div class="ui form">
+         <label>Significado incorrecto</label>
+         <textarea rows="1" ngModel="nuevaFrase.significadoIncorrecto"></textarea>
+    </div>
+      <br>
+
+      <div class="grouped fields">
+          <label for="fruit">Categoria</label>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" name="categoria" checked="" tabindex="0" class="hidden">
+              <label>Principiante</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" name="fruit" tabindex="0" class="hidden">
+              <label>Intermedio</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" name="fruit" tabindex="0" class="hidden">
+              <label>Avanzado</label>
+            </div>
+          </div>
+      </div>
+      <button class="ui right labeled icon button" ng-click="agregarFrase(nuevaFrase); nuevaFrase='';">
+        <i class="save icon"></i>
+        Guardar
+      </button>
+</form>
+</div>
+
+
+<div class="ui green segment">
+   <div ng-controller="listaFrases">
+
+    <table class="ui celled table">
+      <thead>
+        <tr>
+          <th>Opciones</th>
+          <th>Frase</th>
+          <th>Palabra clave</th>
+          <th>Significado correcto</th>
+          <th>Significado incorrecto</th>
+          <th>Categoria</th>
+        </tr></thead>
+      <tbody ng-repeat="frase in frases">
+         <tr>
+          <td> <button class="ui icon button" ng-click="eliminarFrase(frase)"><i class="delete icon"></i></button> </td>
+          <td>{{frase.palabraClave}}</td>
+          <td>{{frase.frase}}</td>
+          <td>Cell</td>
+          <td>Cell</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr><th colspan="5">
+          </th>
+      </tr></tfoot>
+    </table>
+</div>
+</div>
+
+</div>
+  </div>
+  </body>
